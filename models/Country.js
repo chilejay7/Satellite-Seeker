@@ -15,19 +15,19 @@ Country.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    satellite_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "satellite",
-        key: "id",
-      },
-    },
+    // satellite_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: "satellite",
+    //     key: "id",
+    //   },
+    // },
   },
   {
     sequelize,
     timestamps: false,
-    freezerTableName: true,
+    freezeTableName: true,
     underscored: true,
     modelName: "country",
   }

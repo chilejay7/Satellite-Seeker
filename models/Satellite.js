@@ -16,7 +16,7 @@ Satellite.init(
       allowNull: false,
     },
     country_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "country",
@@ -27,7 +27,7 @@ Satellite.init(
   {
     sequelize,
     timestamps: false,
-    freezerTableName: true,
+    freezeTableName: true,
     underscored: true,
     modelName: "satellite",
   }
