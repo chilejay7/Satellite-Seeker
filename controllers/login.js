@@ -8,4 +8,6 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     console.log(`Username is: ${req.body.user_name} and the password is: ${req.body.password}`);
     const newUser = await User.create();
-})
+});
+
+module.exports = router;
