@@ -1,3 +1,3 @@
 DROP DATABASE IF EXISTS satellite_db;
 
-CREATE DATABASE satellte_db;
+CREATE DATABASE satellite_db;
