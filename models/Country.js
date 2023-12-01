@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Country extends Model {}
 
@@ -15,21 +15,21 @@ Country.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    satellite_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "satellite",
-        key: "id",
-      },
-    },
+    // satellite_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: "satellite",
+    //     key: "id",
+    //   },
+    // },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "country",
+    modelName: 'country',
   }
 );
 
