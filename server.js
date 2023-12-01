@@ -21,6 +21,7 @@ const PORT = process.env.PORT || 3001;
 // Express middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 const sess = {

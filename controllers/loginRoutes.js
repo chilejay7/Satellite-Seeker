@@ -5,6 +5,7 @@ router.get('/', async (req, res) => {
     res.render('login');
 })
 
+// Route used to authenticate and log users into the site.
 router.post('/', async (req, res) => {
     console.log(`Username is: ${req.body.user_name} and the password is: ${req.body.password}`);
 
@@ -20,7 +21,19 @@ router.post('/', async (req, res) => {
     if (!userData) {
         res.status(400).render('login');
         return;
-    }
+    };
+
+    req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.user_name = userData.user_name;
+        req.session.email = userData.email;
+        req.session.loggedIn = true;
+
+        res
+            .status(200)
+            .send('You logged in!')
+            // .redirect('/');
+    });
 
 });
 
