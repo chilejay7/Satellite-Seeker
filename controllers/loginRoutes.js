@@ -23,6 +23,13 @@ router.post('/', async (req, res) => {
         return;
     };
 
+    const verifyPassword = await userData.checkPassword(password);
+
+    if (!verifyPassword) {
+        req.status(400).render('login');
+        return;
+    }
+
     req.session.save(() => {
         req.session.user_id = userData.id;
         req.session.user_name = userData.user_name;
@@ -36,5 +43,7 @@ router.post('/', async (req, res) => {
     });
 
 });
+
+router.post('/create_account', async(req, res))
 
 module.exports = router;
