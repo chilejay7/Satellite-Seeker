@@ -31,6 +31,13 @@ header {
 
 body {
     background-image: url('./assets/med_bkgd.jpg');
+    animation: backgroundAnimation 15s ease;
+}
+
+@keyframes backgroundAnimation {
+    0%{background-position: left center};
+    50%{background-position: right center};
+    100%{background-position: left center};
 }
 
 
