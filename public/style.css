@@ -1,3 +1,62 @@
+* {
+    --bkgrd-color: #3e5c76;
+}
+
+header {
+    background-color: var(--bkgrd-color);
+    opacity: .9;
+    padding: 10px;
+    text-align: center;
+}
+
 body {
     background-image: url('./assets/med_bkgd.jpg');
+}
+
+
+footer {
+    background-color: var(--bkgrd-color);
+    padding: 10px;
+    text-align: center;
+    opacity: .9;
+}
+
+main {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+    height: 75vh;
+}
+
+
+input,
+label {
+    margin: 7px;
+    width: 50%;
+}
+
+button {
+    margin: 7px;
+    padding: 3px;
+    font-weight: bold;
+    border-radius: .3em;
+}
+
+#login_forms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.form {
+    width: 450px;
+    margin: 10px;
+    font-size: 1.25rem;
+    padding: 20px;
+    background: linear-gradient(#748cab, #3e5c76, #748cab);
+    font-weight: bold;
+    border-radius: .5em;
+    opacity: .9;
+    box-shadow: 10px 20px 20px;
 }
