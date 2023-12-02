@@ -1,12 +1,32 @@
 * {
-    --bkgrd-color: #3e5c76;
+    /* --bkgrd-color: #3e5c76;
+    --bkgrd-color2: #2a6f97; */
+    --opacity: .85;
+
+    --bkgrd-color1: #a9d6e5;
+    --bkgrd-color2: #89c2d9;
+    --bkgrd-color3: #61a5c2;
+    --bkgrd-color4: #468faf;
+    --bkgrd-color5:#2c7da0;
+    --bkgrd-color6: #2a6f97;
+    --bkgrd-color7: #014f86;
+    --bkgrd-color8: #01497c;
+    --bkgrd-color9: #013a63;
+    --bkgrd-color0: #012a4a;
+
+    --gradient-head: linear-gradient(90deg, var(--bkgrd-color5), var(--bkgrd-color8), var(--bkgrd-color5));
+    --gradient-form: linear-gradient(var(--bkgrd-color4), var(--bkgrd-color2), var(--bkgrd-color4));
+
 }
 
 header {
-    background-color: var(--bkgrd-color);
-    opacity: .9;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: var(--gradient-head);
+    opacity: var(--opacity);
     padding: 10px;
-    text-align: center;
+    color: white;
 }
 
 body {
@@ -15,10 +35,11 @@ body {
 
 
 footer {
-    background-color: var(--bkgrd-color);
+    background: var(--gradient-head);
     padding: 10px;
     text-align: center;
-    opacity: .9;
+    opacity: var(--opacity);
+    color: white;
 }
 
 main {
@@ -54,9 +75,10 @@ button {
     margin: 10px;
     font-size: 1.25rem;
     padding: 20px;
-    background: linear-gradient(#748cab, #3e5c76, #748cab);
+    background: var(--gradient-form);
+    /* background: linear-gradient(#748cab, #3e5c76, #748cab); */
     font-weight: bold;
     border-radius: .5em;
-    opacity: .9;
+    opacity: var(--opacity);
     box-shadow: 10px 20px 20px;
 }
