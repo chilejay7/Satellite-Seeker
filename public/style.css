@@ -29,11 +29,36 @@ header {
     color: white;
 }
 
+h1 {
+    text-align: center;
+    flex-basis: 100%;
+}
+
+nav {
+    flex-basis: 100%;
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    /* border: solid black 2px; */
+}
+
+li a {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* This sets tha background image and animation created through the keyframes styles defined below */
 body {
     background-image: url('./assets/med_bkgd.jpg');
     animation: backgroundAnimation 15s ease;
 }
 
+/* The keyframes are used to animate the background image and set its position */
 @keyframes backgroundAnimation {
     0%{background-position: left center};
     50%{background-position: right center};
