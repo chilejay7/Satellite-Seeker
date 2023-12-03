@@ -113,7 +113,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-top: 50px;
+    padding-top: 50px;
 }
 
 .form {
@@ -133,6 +133,6 @@ button {
     font-weight: bold;
     font-size: 1.5rem;
     color: red;
-    padding: 100px;
+    padding-top: 100px;
     width: 100%;
 }
