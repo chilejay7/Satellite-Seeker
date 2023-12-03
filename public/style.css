@@ -55,16 +55,19 @@ li a {
 /* This sets tha background image and animation created through the keyframes styles defined below */
 body {
     background-image: url('./assets/med_bkgd.jpg');
-    animation: backgroundAnimation 15s ease;
+    background-size: fill;
+    animation: backgroundAnimation 20s ease infinite;
 }
 
 /* The keyframes are used to animate the background image and set its position */
 @keyframes backgroundAnimation {
-    0%{background-position: left center};
-    50%{background-position: right center};
-    100%{background-position: left center};
-}
 
+    50%{background-position: center};
+    75%{background-position: center};
+    100%{background-position: top};
+
+
+}
 
 footer {
     background: var(--gradient-head);
@@ -93,6 +96,13 @@ button {
     padding: 3px;
     font-weight: bold;
     border-radius: .3em;
+    transform: .2s;
+
+    &:hover {
+        transform: translate(0, -2px);
+        cursor: pointer;
+        box-shadow: 5px 5px 5px;
+    }
 }
 
 #login_forms {
