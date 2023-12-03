@@ -1,0 +1,36 @@
+{{#if loggedIn}}
+
+<form action="#" class="form" id="satSearchForm">
+    <h2>Find a Satellite</h2>
+    <div>
+           <label>Satellite Name</label>
+    </div>
+    <div>
+            <input type="text">
+    </div>
+    <div>
+           <label>Latitude</label>
+    </div>
+    <div>
+           <input type="text">
+    </div>
+    <div>
+           <label>Longitude</label>
+    </div>
+    <div>
+           <input type="text">
+    </div>
+    <div>
+           <button id="satSearchBtn">Search Satellites</button>
+    </div>   
+    
+</form>
+
+{{else}}
+
+<div class="login-link">
+    <a href="/login">Please login to track the satellites in your area</a>
+</div>
+
+
+{{/if}}

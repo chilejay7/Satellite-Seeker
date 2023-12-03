@@ -38,8 +38,9 @@ router.post('/', async (req, res) => {
 
         res
             .status(200)
-            .send('You logged in!')
-            // .redirect('/');
+            .redirect('/api/view', {
+                loggedIn: req.session.loggedIn, 
+            })
     });
 
 });
@@ -65,7 +66,9 @@ router.post('/create_account', async (req, res) => {
         req.session.email = userData.email;
         req.session.loggedIn = true;
 
-        res.status(200).send('You created a user!')
+        res.status(200).render('homepage', {
+            loggedIn: req.session.loggedIn, 
+        });
     });
 
 });
