@@ -1,0 +1,131 @@
+:root {
+    /* --bkgrd-color: #3e5c76;
+    --bkgrd-color2: #2a6f97; */
+    --opacity: .85;
+
+    --bkgrd-color1: #a9d6e5;
+    --bkgrd-color2: #89c2d9;
+    --bkgrd-color3: #61a5c2;
+    --bkgrd-color4: #468faf;
+    --bkgrd-color5:#2c7da0;
+    --bkgrd-color6: #2a6f97;
+    --bkgrd-color7: #014f86;
+    --bkgrd-color8: #01497c;
+    --bkgrd-color9: #013a63;
+    --bkgrd-color0: #012a4a;
+
+    --gradient-head: linear-gradient(90deg, var(--bkgrd-color5), var(--bkgrd-color8), var(--bkgrd-color5));
+    --gradient-form: linear-gradient(var(--bkgrd-color4), var(--bkgrd-color2), var(--bkgrd-color4));
+
+}
+
+* {
+    font-family: 'Lora', serif;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: var(--gradient-head);
+    opacity: var(--opacity);
+    padding: 10px;
+    color: white;
+    border-radius: .5em;
+}
+
+h1 {
+    text-align: center;
+    flex-basis: 100%;
+}
+
+nav {
+    flex-basis: 100%;
+    margin-right: 5%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    /* border: solid black 2px; */
+}
+
+li a {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* This sets tha background image and animation created through the keyframes styles defined below */
+body {
+    background-image: url('./assets/med_bkgd.jpg');
+    background-size: fill;
+    animation: backgroundAnimation 20s ease infinite;
+}
+
+/* The keyframes are used to animate the background image and set its position */
+@keyframes backgroundAnimation {
+
+    50%{background-position: center};
+    75%{background-position: center};
+    100%{background-position: top};
+
+
+}
+
+footer {
+    background: var(--gradient-head);
+    padding: 10px;
+    text-align: center;
+    opacity: var(--opacity);
+    color: white;
+    border-radius: .5em;
+}
+
+main {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+    height: 70vh;
+}
+
+input,
+label {
+    margin: 7px;
+    width: 50%;
+}
+
+button {
+    margin: 7px;
+    padding: 3px;
+    font-weight: bold;
+    border-radius: .3em;
+    transform: .2s;
+
+    &:hover {
+        transform: translate(0, -2px);
+        cursor: pointer;
+        box-shadow: 5px 5px 5px;
+    }
+}
+
+#login_forms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.form {
+    width: 450px;
+    margin: 10px;
+    font-size: 1.25rem;
+    padding: 20px;
+    background: var(--gradient-form);
+    font-weight: bold;
+    border-radius: .5em;
+    opacity: var(--opacity);
+    box-shadow: 10px 20px 20px;
+}
