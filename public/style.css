@@ -1,4 +1,4 @@
-* {
+:root {
     /* --bkgrd-color: #3e5c76;
     --bkgrd-color2: #2a6f97; */
     --opacity: .85;
@@ -19,6 +19,10 @@
 
 }
 
+* {
+    font-family: 'Lora', serif;
+}
+
 header {
     display: flex;
     flex-wrap: wrap;
@@ -27,6 +31,7 @@ header {
     opacity: var(--opacity);
     padding: 10px;
     color: white;
+    border-radius: .5em;
 }
 
 h1 {
@@ -50,6 +55,7 @@ li a {
     font-size: 1.25rem;
     font-weight: bold;
     color: white;
+    text-decoration: none;
 }
 
 /* This sets tha background image and animation created through the keyframes styles defined below */
@@ -75,15 +81,15 @@ footer {
     text-align: center;
     opacity: var(--opacity);
     color: white;
+    border-radius: .5em;
 }
 
 main {
     /* display: flex;
     align-items: center;
     justify-content: space-around; */
-    height: 75vh;
+    height: 70vh;
 }
-
 
 input,
 label {
@@ -118,7 +124,6 @@ button {
     font-size: 1.25rem;
     padding: 20px;
     background: var(--gradient-form);
-    /* background: linear-gradient(#748cab, #3e5c76, #748cab); */
     font-weight: bold;
     border-radius: .5em;
     opacity: var(--opacity);
