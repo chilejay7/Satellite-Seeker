@@ -1,24 +1,25 @@
+<section id="aboutUsPage">
 {{#if loggedIn}}
 
 <form action="#" class="form" id="satSearchForm">
     <h2>Find a Satellite</h2>
     <div>
-           <label>Satellite Name</label>
+           <label for="satellite_name">Satellite Name</label>
     </div>
     <div>
-            <input type="text">
+            <input type="text" id="satellite_name">
     </div>
     <div>
-           <label>Latitude</label>
+           <label for="latitudeSearch">Latitude</label>
     </div>
     <div>
-           <input type="text">
+           <input type="text" id="latitudeSearch">
     </div>
     <div>
-           <label>Longitude</label>
+           <label for="longitudeSearch">Longitude</label>
     </div>
     <div>
-           <input type="text">
+           <input type="text" id="longitudeSearch">
     </div>
     <div>
            <button id="satSearchBtn">Search Satellites</button>
@@ -26,6 +27,16 @@
     
 </form>
 
+
+<section class="form" id="satSearchResults">
+       <div >
+       <p id="citySearch"></p>
+       </div>
+       <p id="countrySearch"></p>
+       <div>
+
+       </div>
+</section>
 {{else}}
 
 <div class="login-link">
@@ -34,3 +45,6 @@
 
 
 {{/if}}
+</section>
+
+<script src="/scripts/satelliteFetch.js"></script>
