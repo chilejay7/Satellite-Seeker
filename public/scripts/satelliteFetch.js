@@ -2,7 +2,7 @@
 // const satellite_name = document.querySelector('#satellite_name').value.trim();
 
 // Test URL
-// https://us1.locationiq.com/v1/reverse?key=pk.22d0edfddce32c550c5ec3ce624e2689&lat=48.8584&lon=2.2945&format=json
+// https://us1.locationiq.com/v1/reverse?key=DB_API_KEY&lat=48.8584&lon=2.2945&format=json
 
 const searchSatellitesForm = async (event) => {
   event.preventDefault();
@@ -10,7 +10,7 @@ const searchSatellitesForm = async (event) => {
   const latitude = document.querySelector('#latitudeSearch').value.trim();
   const longitude = document.querySelector('#longitudeSearch').value.trim();
 
-  const geoCodingUrl = `https://us1.locationiq.com/v1/reverse?key=pk.22d0edfddce32c550c5ec3ce624e2689&lat=${latitude}&lon=${longitude}&format=json`;
+  const geoCodingUrl = `https://us1.locationiq.com/v1/reverse?key=DB_API_KEY&lat=${latitude}&lon=${longitude}&format=json`;
 
   if (latitude && longitude) {
     try {
