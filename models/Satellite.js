@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Satellite extends Model {}
 
@@ -15,12 +15,20 @@ Satellite.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    longitude: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
+    latitude: {
+      type: DataTypes.FLOAT,
+      allowNull: true,
+    },
     country_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "country",
-        key: "id",
+        model: 'country',
+        key: 'id',
       },
     },
   },
@@ -29,7 +37,7 @@ Satellite.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "satellite",
+    modelName: 'satellite',
   }
 );
 
