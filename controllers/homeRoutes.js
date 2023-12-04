@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 
     res.render('homepage', {
       satellites,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -30,7 +31,9 @@ router.get('/', async (req, res) => {
 
 // Get route for about us page
 router.get('/about', (req, res) => {
-  res.render('aboutUs');
+  res.render('aboutUs', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 module.exports = router;
