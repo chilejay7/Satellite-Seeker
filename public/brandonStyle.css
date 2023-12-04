@@ -21,7 +21,7 @@ img {
     border-radius: 50%;
 }
 
-#aboutUsPage {
+#aboutUsPage, #searchPage {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -67,7 +67,7 @@ img {
     border-radius: 0%;
 }
 
-@media (max-width: 1550px) {
+@media (max-width: 1565px) {
 
     img {
         height: 150px;
