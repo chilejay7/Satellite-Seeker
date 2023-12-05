@@ -1,0 +1,50 @@
+<section id="aboutUsPage">
+{{#if loggedIn}}
+
+<form action="#" class="form" id="satSearchForm">
+    <h2>Find a Satellite</h2>
+    <div>
+           <label for="satellite_name">Satellite Name</label>
+    </div>
+    <div>
+            <input type="text" id="satellite_name">
+    </div>
+    <div>
+           <label for="latitudeSearch">Latitude</label>
+    </div>
+    <div>
+           <input type="text" id="latitudeSearch">
+    </div>
+    <div>
+           <label for="longitudeSearch">Longitude</label>
+    </div>
+    <div>
+           <input type="text" id="longitudeSearch">
+    </div>
+    <div>
+           <button id="satSearchBtn">Search Satellites</button>
+    </div>   
+    
+</form>
+
+
+<section class="form" id="satSearchResults">
+       <div >
+       <p id="citySearch"></p>
+       </div>
+       <p id="countrySearch"></p>
+       <div>
+
+       </div>
+</section>
+{{else}}
+
+<div class="login-link">
+    <a href="/login">Please login to track the satellites in your area</a>
+</div>
+
+
+{{/if}}
+</section>
+
+<script src="/scripts/satelliteFetch.js"></script>

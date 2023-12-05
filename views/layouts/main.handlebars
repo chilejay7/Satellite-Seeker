@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Satellite Locations</title>
-    <link rel="stylesheet" href="/css/jass.css" />
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
 
-  <body>
+<head>
+    <meta charset="UTF-8" />
+
+    {{!-- Imports the Lora fonts from Google --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <title>Satellite Locations</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/brandonStyle.css" />
+</head>
+
+<body>
     <div class="flex-column justify-space-around">
-      <header class="display-flex justify-space-between align-center p-2">
-        <h1>&#127881; Satellite ! &#127881;</h1>
-      </header>
-      <main class="container container-fluid mt-5">{{{ body }}}</main>
+        <header class="display-flex justify-space-between align-center p-2">
+            <h1>Satellite</h1>
+            <nav>
+                <ul>
+                    <li><a href="/api/view">View Satellites</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+
+                    {{#if loggedIn}}
+
+                    <li><a href="#" id="logout-link">Logout</a></li>
+
+                    {{else}}
+
+                    <li><a href="/login">Login</a></li>
+
+                    {{/if}}
+
+                </ul>
+            </nav>
+        </header>
+
+        <main class="container container-fluid mt-5">{{{ body }}}</main>
     </div>
-  </body>
+
+    <footer>
+        <h4> &#xa9; Brandon Wing, Russell Montjoy, Cody Burkholder</h4>
+        <h4>Development Team 2023</h4>
+    </footer>
+
+     <script src="/scripts/logout.js"></script>
+</body>
+
 </html>

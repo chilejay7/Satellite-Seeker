@@ -15,12 +15,13 @@ const hbs = exphbs.create({helpers});
 
 //Sets up the Express App
 const app = express (); 
-const PORT = process.env.PORT || 3001; 
+const PORT = process.env.PORT || 3008; 
 
 
 // Express middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(morgan('dev'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 const sess = {

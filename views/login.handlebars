@@ -1,0 +1,54 @@
+<section id="login_forms">
+    <section class="form" id="loginForm">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <div>
+                <label for="loginName">Username:</label>
+            </div>
+
+            <div>
+                <input type="text" placeholder="Username" id="loginName" name="user_name">
+            </div>
+
+            <div>
+                <label for="loginPassword">Password:</label>
+            </div>
+
+            <div>
+                <input type="password" placeholder="Password" id="loginPassword" name="password">
+            </div>
+
+            <div>
+                <button>Sign-in</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="form" id="create_account">
+        <h2>Sign-Up</h2>
+        <form action="/login/create_account" method="POST">
+            <div>
+                <label for="username">Username:</label>
+            </div>
+
+            <div>
+                <input type="text" placeholder="Username" id="username" name="user_name">
+            </div>
+            <div>
+                <label for="email">Email Address:</label>
+            </div>
+            <div>
+                <input type="email" placeholder="Email Address" id="email" name="email">
+            </div>
+            <div>
+                <label for="password">Create a Password:</label>
+            </div>
+            <div>
+                <input type="password" placeholder="Password" id="password" name="password">
+            </div>
+            <div>
+                <button>Create Account</button>
+            </div>
+        </form>
+    </section>
+</section>
