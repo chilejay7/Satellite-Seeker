@@ -15,14 +15,14 @@ Satellite.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    longitude: {
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
-    latitude: {
-      type: DataTypes.FLOAT,
-      allowNull: true,
-    },
+    // longitude: {
+    //   type: DataTypes.FLOAT,
+    //   allowNull: true,
+    // },
+    // latitude: {
+    //   type: DataTypes.FLOAT,
+    //   allowNull: true,
+    // },
     country_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
