@@ -28,7 +28,7 @@
 //       };
       
 //       try {
-//           const response = await axios.request(options);
+//           const response = await axios.get(options);
 //           console.log(response.data);
 //       } catch (error) {
 //           console.error(error);
