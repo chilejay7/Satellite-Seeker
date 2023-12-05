@@ -4,6 +4,27 @@
 // Test URL
 // https://us1.locationiq.com/v1/reverse?key=DB_API_KEY&lat=48.8584&lon=2.2945&format=json
 
+// Fetches the URL using the longitude and latitude from the searchSatellitesForm function, and creates an image that attaches to the mapImage
+const mapCoordinates = async (latitude, longitude) => {
+  const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=DB_API_KEY&zoom=4&size=600x600&format=jpg&maptype=light&markers=icon:small-red-cutout|${latitude},${longitude}`;
+
+  const response = await fetch(mapUrl, {
+    method: 'GET',
+  });
+
+  if (response.ok) {
+    const img = document.createElement('img');
+    img.classList.add('mapLocation');
+    img.src = mapUrl;
+
+    const final = document.querySelector('#mapImage');
+    final.innerText = '';
+    final.appendChild(img);
+  } else {
+    console.log('Error fetching map image.');
+  }
+};
+
 const searchSatellitesForm = async (event) => {
   event.preventDefault();
 
@@ -33,6 +54,8 @@ const searchSatellitesForm = async (event) => {
         document.querySelector(
           '#countrySearch'
         ).innerText = `Country is: ${country}`;
+
+        mapCoordinates(latitude, longitude);
 
         console.log(data);
       } else {

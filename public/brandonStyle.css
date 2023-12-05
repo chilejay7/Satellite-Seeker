@@ -21,15 +21,14 @@ img {
     border-radius: 50%;
 }
 
-#aboutUsPage {
+#aboutUsPage, #searchPage {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 50px;
 }
 
-.boxDiv {
-    width: 450px;
+.boxDiv, .homepageDiv {
     margin: 10px;
     font-size: 1.25rem;
     padding: 20px;
@@ -37,6 +36,10 @@ img {
     font-weight: bold;
     border-radius: .5em;
     box-shadow: 10px 20px 20px;
+}
+
+.boxDiv {
+    width: 450px;
 }
 
 .name, .picture, .description {
@@ -55,17 +58,16 @@ img {
     justify-content: space-between;
     align-items: center;
     height: 70px;
-    margin: 10px;
-    font-size: 1.25rem;
-    padding: 20px;
-    background: var(--gradient-form);
-    font-weight: bold;
     opacity: var(--opacity);
-    border-radius: .5em;
-    box-shadow: 10px 20px 20px;
 }
 
-@media (max-width: 1550px) {
+.mapLocation {
+    height: 400px;
+    width: 400px;
+    border-radius: 0%;
+}
+
+@media (max-width: 1565px) {
 
     img {
         height: 150px;

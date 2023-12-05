@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
       satellite.get({ plain: true })
     );
 
-    console.log(`Satellite is this one ${satellites}`);
+    console.dir(`Satellite is this one ${satellites.map(s => console.log(s))}`);
 
     res.render('homepage', {
       satellites,
