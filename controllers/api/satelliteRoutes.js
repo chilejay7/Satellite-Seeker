@@ -2,9 +2,9 @@ const router = require('express').Router();
 const { Satellite, Country } = require('../../models');
 
 router.get('/', (req, res) => {
-    res.render('sat', {
-        loggedIn: req.session.loggedIn,
-    });
+  res.render('sat', {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 router.get('/:id', (req, res) => {
