@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 
         res
             .status(200)
-            .redirect('/api/view')
+            .redirect('/')
     });
 
 });

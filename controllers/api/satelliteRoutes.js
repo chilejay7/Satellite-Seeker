@@ -7,6 +7,12 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/search', (req, res) => {
+    res.render('uphere', {
+        loggedIn: req.session.loggedIn,
+    });
+})
+
 router.get('/:id', async (req, res) => {
     const { id } = req.params;  
 
