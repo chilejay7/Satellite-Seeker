@@ -6,7 +6,7 @@
 
 // Fetches the URL using the longitude and latitude from the searchSatellitesForm function, and creates an image that attaches to the mapImage
 const mapCoordinates = async (latitude, longitude) => {
-  const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=DB_API_KEY&zoom=4&size=600x600&format=jpg&maptype=light&markers=icon:small-red-cutout|${latitude},${longitude}`;
+  const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=pk.22d0edfddce32c550c5ec3ce624e2689&zoom=4&size=600x600&format=jpg&maptype=light&markers=icon:small-red-cutout|${latitude},${longitude}`;
 
   const response = await fetch(mapUrl, {
     method: 'GET',
@@ -31,7 +31,7 @@ const searchSatellitesForm = async (event) => {
   const latitude = document.querySelector('#latitudeSearch').value.trim();
   const longitude = document.querySelector('#longitudeSearch').value.trim();
 
-  const geoCodingUrl = `https://us1.locationiq.com/v1/reverse?key=DB_API_KEY&lat=${latitude}&lon=${longitude}&format=json`;
+  const geoCodingUrl = `https://us1.locationiq.com/v1/reverse?key=pk.22d0edfddce32c550c5ec3ce624e2689&lat=${latitude}&lon=${longitude}&format=json`;
 
   if (latitude && longitude) {
     try {
