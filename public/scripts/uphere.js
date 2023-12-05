@@ -9,7 +9,7 @@
 //     const satelliteName = document.getElementById('satellite_name').value;
 //     const latitude = document.getElementById('latitude').value;
 //     const longitude = document.getElementById('longitude').value;
-    
+
 //     console.log(satelliteName);
 //     console.log(latitude);
 //     console.log(longitude);
@@ -26,9 +26,9 @@
 //           'X-RapidAPI-Host': 'uphere-space1.p.rapidapi.com'
 //         }
 //       };
-      
+
 //       try {
-//           const response = await axios.get(options);
+//           const response = await axios.request(options);
 //           console.log(response.data);
 //       } catch (error) {
 //           console.error(error);
