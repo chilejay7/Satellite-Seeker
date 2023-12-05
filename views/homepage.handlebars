@@ -3,13 +3,16 @@
 {{#each satellites as |satellite|}}
 
     <section class="homepageDiv">
+        <a href = "#"> 
         <div class="satellite">
             <h2>{{satellite.satellite_name}}</h2>
         </div>
         <div class="country">
             <p>Created by: {{satellite.user.name}}</p>
         </div>
+        </a>
     </section>
+
 
 {{/each}}
 
