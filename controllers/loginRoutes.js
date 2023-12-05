@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
     const verifyPassword = await userData.checkPassword(password);
 
     if (!verifyPassword) {
-        req.status(400).render('login');
+        res.status(400).render('login');
         return;
     }
 
@@ -38,12 +38,13 @@ router.post('/', async (req, res) => {
 
         res
             .status(200)
-            .send('You logged in!')
-            // .redirect('/');
+            .redirect('/api/view')
     });
 
 });
 
+
+// Route used to create a new account.
 router.post('/create_account', async (req, res) => {
     const { user_name, email, password } = req.body;
 
@@ -65,9 +66,16 @@ router.post('/create_account', async (req, res) => {
         req.session.email = userData.email;
         req.session.loggedIn = true;
 
-        res.status(200).send('You created a user!')
+        res.status(200).render('homepage', {
+            loggedIn: req.session.loggedIn, 
+        });
     });
 
+});
+
+router.post('/end_session', (req, res) => {
+    req.session.loggedIn ? req.session.destroy(() => res.status(204).end())
+        : res.status(404).end();
 });
 
 module.exports = router;

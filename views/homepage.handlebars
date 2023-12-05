@@ -1,10 +1,16 @@
+<section id="homepage">
+
 {{#each satellites as |satellite|}}
 
-<div>
-    <h2>{{satellite.satellite_name}}</h2>
-</div>
-<div>
-    <p>Created by: {{satellite.user.name}}</p>
-</div>
+    <section class="homepageDiv">
+        <div class="satellite">
+            <h2>{{satellite.satellite_name}}</h2>
+        </div>
+        <div class="country">
+            <p>Created by: {{satellite.user.name}}</p>
+        </div>
+    </section>
 
 {{/each}}
+
+</section>
