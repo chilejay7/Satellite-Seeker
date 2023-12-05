@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
   });
 });
 
+// Used with the uphere.js script file to retrieve data from the UPHERE.SPACE API
 router.get('/search', (req, res) => {
     res.render('uphere', {
         loggedIn: req.session.loggedIn,
