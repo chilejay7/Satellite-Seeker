@@ -1,15 +1,16 @@
-<section id="homepage">
-
 {{#each satellites as |satellite|}}
 
     <section class="homepageDiv">
+        <a href = "/api/satellite{{satellite.id}}"> 
         <div class="satellite">
             <h2>{{satellite.satellite_name}}</h2>
         </div>
         <div class="country">
             <p>Created by: {{satellite.user.name}}</p>
         </div>
+        </a>
     </section>
+
 
 {{/each}}
 
