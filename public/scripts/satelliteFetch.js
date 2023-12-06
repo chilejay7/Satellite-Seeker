@@ -31,23 +31,44 @@ const searchData = async (noradId) => {
 };
 
 // Fetches the URL using the longitude and latitude from the searchSatellitesForm function, and creates an image that attaches to the mapImage
-// Doesn't need a fetch request because we are only using URL to create image
+// Wouldn't normally need a fetch request as it just displays a URL, but since it goes through backend fetch request is required
 const mapCoordinates = async (longitudeMap, latitudeMap) => {
-  const mapUrl = `https://api.mapbox.com/styles/v1/mapbox/light-v11/static/pin-l-communications-tower+f74e4e(${longitudeMap},${latitudeMap})/${longitudeMap},${latitudeMap},2/500x500?access_token=pk.eyJ1IjoiYndpbmciLCJhIjoiY2xwdTJvOHR5MGZoZTJ2b2piMWdneXplbyJ9.09m-T__wSv-CJIdU63eYaQ`;
+  try {
+    const response = await fetch('/api/satellite', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // POST requests need to be in string form, so we convert longitudeMap and latitudeMap from object
+      body: JSON.stringify({ longitudeMap, latitudeMap }),
+    });
 
-  const img = document.createElement('img');
-  img.classList.add('mapLocation');
-  img.src = mapUrl;
+    if (response.ok) {
+      const data = await response.json();
+      const mapUrl = data.mapUrl;
 
-  const final = document.querySelector('#mapImage');
-  // Removes text content from div with mapImage id so that previous search result is cleared
-  final.innerText = '';
-  final.appendChild(img);
+      const img = document.createElement('img');
+      img.classList.add('mapLocation');
+      img.src = mapUrl;
+
+      const final = document.querySelector('#mapImage');
+      // Removes text content from div with mapImage id so that previous search result is cleared
+      final.innerText = '';
+      final.appendChild(img);
+    } else {
+      console.error('Failed to fetch map data');
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 // Uses the latitudeMap and longitudeMap parameters from uphere API axios request to show/map location
 const searchSatellitesForm = async (event) => {
   event.preventDefault();
+
+  // Removes text content from div with new search
+  document.querySelector('#locationSearch').innerText = '';
 
   // Retrieves value that was entered into norad_id input field
   const norad_id = document.querySelector('#norad_id').value.trim();
@@ -55,12 +76,17 @@ const searchSatellitesForm = async (event) => {
   // searchData function is called with norad_id argument, and object properties are destructured into local variables
   const { longitudeMap, latitudeMap } = await searchData(norad_id);
 
-  const geoCodingUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitudeMap},${latitudeMap}.json?access_token=pk.eyJ1IjoiYndpbmciLCJhIjoiY2xwdTJvOHR5MGZoZTJ2b2piMWdneXplbyJ9.09m-T__wSv-CJIdU63eYaQ`;
-
   if (longitudeMap && latitudeMap) {
     try {
-      const response = await fetch(geoCodingUrl, {
-        method: 'GET',
+      const response = await fetch('/api/satellite', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          longitudeMap,
+          latitudeMap,
+        }),
       });
 
       if (response.ok) {
@@ -68,17 +94,14 @@ const searchSatellitesForm = async (event) => {
         console.log(data);
 
         // Mapbox API returns features array that may include elements depending on location, and will show satellite location if features array exists
-        if (!data.features.length) {
+        if (!data.place) {
           document.querySelector(
             '#mapCoordinates'
           ).innerText = `Current location is ${longitudeMap}, ${latitudeMap}`;
         } else {
-          const place = data.features[0].place_name;
-          console.log(data.features[0]);
-
           document.querySelector(
             '#locationSearch'
-          ).innerText = `Satellite is over ${place}`;
+          ).innerText = `Satellite is over ${data.place}`;
 
           document.querySelector(
             '#mapCoordinates'
