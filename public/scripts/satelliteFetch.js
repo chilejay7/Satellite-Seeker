@@ -20,8 +20,8 @@ const searchData = async (noradId) => {
     console.log(response.data);
 
     // Array order goes by longitude and latitude for values 0 and 1
-    const longitudeMap = response.data.coordinates[0].toFixed(0);
-    const latitudeMap = response.data.coordinates[1].toFixed(0);
+    const longitudeMap = response.data.coordinates[0].toFixed(1);
+    const latitudeMap = response.data.coordinates[1].toFixed(1);
 
     // Return these two as object for mapping fetch request
     return { latitudeMap, longitudeMap };
@@ -32,8 +32,8 @@ const searchData = async (noradId) => {
 
 // Fetches the URL using the longitude and latitude from the searchSatellitesForm function, and creates an image that attaches to the mapImage
 // Doesn't need a fetch request because we are only using URL to create image
-const mapCoordinates = async (latitudeMap, longitudeMap) => {
-  const mapUrl = `https://maps.locationiq.com/v3/staticmap?key=pk.22d0edfddce32c550c5ec3ce624e2689&zoom=3&size=600x600&format=jpg&maptype=light&markers=icon:small-red-cutout|${latitudeMap},${longitudeMap}`;
+const mapCoordinates = async (longitudeMap, latitudeMap) => {
+  const mapUrl = `https://api.mapbox.com/styles/v1/mapbox/light-v11/static/pin-l-communications-tower+f74e4e(${longitudeMap},${latitudeMap})/${longitudeMap},${latitudeMap},2/500x500?access_token=pk.eyJ1IjoiYndpbmciLCJhIjoiY2xwdTJvOHR5MGZoZTJ2b2piMWdneXplbyJ9.09m-T__wSv-CJIdU63eYaQ`;
 
   const img = document.createElement('img');
   img.classList.add('mapLocation');
@@ -53,42 +53,40 @@ const searchSatellitesForm = async (event) => {
   const norad_id = document.querySelector('#norad_id').value.trim();
 
   // searchData function is called with norad_id argument, and object properties are destructured into local variables
-  const { latitudeMap, longitudeMap } = await searchData(norad_id);
+  const { longitudeMap, latitudeMap } = await searchData(norad_id);
 
-  const geoCodingUrl = `https://us1.locationiq.com/v1/reverse?key=pk.22d0edfddce32c550c5ec3ce624e2689&lat=${latitudeMap}&lon=${longitudeMap}&format=json`;
+  const geoCodingUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitudeMap},${latitudeMap}.json?access_token=pk.eyJ1IjoiYndpbmciLCJhIjoiY2xwdTJvOHR5MGZoZTJ2b2piMWdneXplbyJ9.09m-T__wSv-CJIdU63eYaQ`;
 
-  if (latitudeMap && longitudeMap) {
+  if (longitudeMap && latitudeMap) {
     try {
       const response = await fetch(geoCodingUrl, {
         method: 'GET',
       });
 
-      // if the LocationIQ API doesn't have data for coordinates (mainly over bodies of water...) it will throw a 404 status
-      if (response.status === 404) {
-        alert('No data available for the provided coordinates.');
-        return;
-      }
-
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
 
-        // Retrieves the destructured city and country name that are associated with coordinates
-        const { city, country } = data.address;
+        // Mapbox API returns features array that may include elements depending on location, and will show satellite location if features array exists
+        if (!data.features.length) {
+          document.querySelector(
+            '#mapCoordinates'
+          ).innerText = `Current location is ${longitudeMap}, ${latitudeMap}`;
+        } else {
+          const place = data.features[0].place_name;
+          console.log(data.features[0]);
 
-        console.log(geoCodingUrl);
+          document.querySelector(
+            '#locationSearch'
+          ).innerText = `Satellite is over ${place}`;
 
-        document.querySelector(
-          '#citySearch'
-        ).innerText = `Satellite is over city: ${city}`;
-
-        document.querySelector(
-          '#countrySearch'
-        ).innerText = `Satellite is over country: ${country}`;
+          document.querySelector(
+            '#mapCoordinates'
+          ).innerText = `Current location is ${longitudeMap}, ${latitudeMap}`;
+        }
 
         // mapCoordinates() function is called here with the coordinate values from the axios API call
-        mapCoordinates(latitudeMap, longitudeMap);
-
-        console.log(data);
+        mapCoordinates(longitudeMap, latitudeMap);
       } else {
         alert('Failed to find coordinates, please try again.');
       }
