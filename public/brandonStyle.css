@@ -49,7 +49,7 @@ a {
     width: 450px;
 }
 
-.name, .picture, .description {
+.name, .picture, .description, #mapImage {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,6 +72,14 @@ a {
     height: 400px;
     width: 400px;
     border-radius: 0%;
+    border: 2px solid #468faf;
+}
+
+@media (max-width: 1033px) {
+    .mapLocation {
+        height: 200px;
+        width: 200px; 
+    }
 }
 
 @media (max-width: 1565px) {
@@ -86,4 +94,7 @@ a {
         display: flex;
     }
 
+
+
 }
+
