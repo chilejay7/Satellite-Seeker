@@ -2,16 +2,14 @@
     
 {{#each satellites as |satellite|}}
 
+    <a href = "/api/satellite/{{satellite.id}}"> 
     <section class="homepageDiv">
-        <a href = "/api/satellite/{{satellite.id}}"> 
-        <div class="satellite" {{satellite.norad_id}}>
+        <div class="homepageInfo">
             <h2>{{satellite.satellite_name}}</h2>
-        </div>
-        <div class="country">
             <p>Created by: {{satellite.country.country_name}}</p>
         </div>
-        </a>
     </section>
+    </a>
 
 
 {{/each}}

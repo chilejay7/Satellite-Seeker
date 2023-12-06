@@ -51,11 +51,21 @@ nav ul {
     /* border: solid black 2px; */
 }
 
-li a {
+a {
     font-size: 1.25rem;
     font-weight: bold;
-    color: white;
+    color: black;
     text-decoration: none;
+}
+
+li a {
+    color: white;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
 }
 
 /* This sets tha background image and animation created through the keyframes styles defined below */
@@ -109,25 +119,6 @@ button {
     }
 }
 
-#login_forms {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding-top: 50px;
-}
-
-.form {
-    width: 450px;
-    margin: 10px;
-    font-size: 1.25rem;
-    padding: 20px;
-    background: var(--gradient-form);
-    font-weight: bold;
-    border-radius: .5em;
-    opacity: var(--opacity);
-    box-shadow: 10px 20px 20px;
-}
-
 .login-link {
     text-align: center;
     font-weight: bold;
@@ -136,3 +127,92 @@ button {
     padding-top: 100px;
     width: 100%;
 }
+
+#login_forms,
+#aboutUsPage,
+#searchPage,
+#satIdPage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 50px;
+}
+
+#homepage {
+    padding-top: 40px;
+}
+
+.form, 
+.boxDiv,
+.homepageDiv {
+    
+    font-size: 1.25rem;
+    padding: 20px;
+    background: var(--gradient-form);
+    font-weight: bold;
+    border-radius: .5em;
+    box-shadow: 10px 20px 20px;
+}
+
+.form,
+.boxDiv {
+    margin: 10px;
+    width: 450px;
+}
+
+.form,
+.homepageDiv {
+    opacity: var(--opacity);
+}
+
+.homepageDiv {
+    margin: 20px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    &:hover {
+        color: white;
+        cursor: pointer;
+        box-shadow: none;
+    }
+}
+
+.name,
+.picture,
+.description,
+#mapImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.mapLocation {
+    height: 400px;
+    width: 400px;
+    border-radius: 0%;
+    border: 2px solid #468faf;
+}
+
+@media (max-width: 1033px) {
+    .mapLocation {
+        height: 200px;
+        width: 200px; 
+    }
+}
+
+@media (max-width: 1565px) {
+
+    img {
+        height: 150px;
+        width: 150px;
+    }
+
+    .boxDiv {
+        height: 150px;
+        display: flex;
+    }
+}
+
