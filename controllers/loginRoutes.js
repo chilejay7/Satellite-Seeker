@@ -48,6 +48,7 @@ router.post('/', async (req, res) => {
 router.post('/create_account', async (req, res) => {
     const { user_name, email, password } = req.body;
 
+    try{
     const userData = await User.create({
         user_name: user_name.toLowerCase(),
         email: email.toLowerCase(),
@@ -66,10 +67,13 @@ router.post('/create_account', async (req, res) => {
         req.session.email = userData.email;
         req.session.loggedIn = true;
 
-        res.status(200).render('homepage', {
-            loggedIn: req.session.loggedIn, 
-        });
+        res.status(200).redirect('/');
     });
+
+} catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+}
 
 });
 
