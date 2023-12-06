@@ -79,11 +79,11 @@ const searchSatellitesForm = async (event) => {
 
         document.querySelector(
           '#citySearch'
-        ).innerText = `Satellite is over City: ${city}`;
+        ).innerText = `Satellite is over city: ${city}`;
 
         document.querySelector(
           '#countrySearch'
-        ).innerText = `Satellite is over Country: ${country}`;
+        ).innerText = `Satellite is over country: ${country}`;
 
         // mapCoordinates() function is called here with the coordinate values from the axios API call
         mapCoordinates(latitudeMap, longitudeMap);

@@ -4,11 +4,11 @@
 
     <section class="homepageDiv">
         <a href = "/api/satellite/{{satellite.id}}"> 
-        <div class="satellite">
+        <div class="satellite" {{satellite.norad_id}}>
             <h2>{{satellite.satellite_name}}</h2>
         </div>
         <div class="country">
-            <p>Created by: {{satellite.user.name}}</p>
+            <p>Created by: {{satellite.country.country_name}}</p>
         </div>
         </a>
     </section>

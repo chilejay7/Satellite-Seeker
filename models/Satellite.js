@@ -15,6 +15,10 @@ Satellite.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    norad_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     // longitude: {
     //   type: DataTypes.FLOAT,
     //   allowNull: true,

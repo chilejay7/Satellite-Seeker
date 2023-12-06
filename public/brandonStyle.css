@@ -21,7 +21,14 @@ img {
     border-radius: 50%;
 }
 
-#aboutUsPage, #searchPage {
+a {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+#aboutUsPage, #searchPage, #satIdPage {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

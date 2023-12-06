@@ -5,13 +5,13 @@ const countryData = [
     country_name: 'USA',
   },
   {
-    country_name: 'China',
+    country_name: 'South Korea',
   },
   {
     country_name: 'Canada',
   },
   {
-    country_name: 'Russia',
+    country_name: 'China',
   },
 ];
 
