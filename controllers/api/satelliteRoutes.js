@@ -70,4 +70,15 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params; 
+    const deletePost = await Satellite.destroy({
+        where: {
+            id,
+        }
+    });
+
+    res.status(200).json('The satellite has been removed.')
+});
+
 module.exports = router;
