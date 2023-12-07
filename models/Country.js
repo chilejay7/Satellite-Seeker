@@ -15,14 +15,6 @@ Country.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // satellite_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: "satellite",
-    //     key: "id",
-    //   },
-    // },
   },
   {
     sequelize,

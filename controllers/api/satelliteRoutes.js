@@ -16,28 +16,28 @@ router.get('/search', (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-      const satData = await Satellite.findByPk(id, {
-        include: [
-          {
-            model: Country,
-            attributes: ['id', 'country_name'],
-          }
-        ]
-      })
-      if(satData) {
-        const satInfo = satData.get({ plain: true });
-        console.log(satInfo);
-        res.render('satid', { 
+  const { id } = req.params;
+  try {
+    const satData = await Satellite.findByPk(id, {
+      include: [
+        {
+          model: Country,
+          attributes: ['id', 'country_name'],
+        },
+      ],
+    });
+    if (satData) {
+      const satInfo = satData.get({ plain: true });
+      console.log(satInfo);
+      res.render('satid', {
         satInfo,
         loggedIn: req.session.loggedIn,
-         })
-      }
-    } catch (err) {
-      res.status(500).json(err)
+      });
     }
-})
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // POST route for norad ID submitted to track coordinates and map out location
 router.post('/', async (req, res) => {
@@ -58,6 +58,7 @@ router.post('/', async (req, res) => {
     // Response goes to client side through JSON object
     if (geoResponse.data.features.length > 0) {
       const place = geoResponse.data.features[0].place_name;
+
       res.json({ mapUrl, place });
     } else {
       res.json({ mapUrl });
@@ -71,33 +72,40 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
+  const { id } = req.params;
+  const { satellite_name, country_name } = req.body;
+  console.log(`This is the id:${id}`);
 
-    const { id } = req.params;
-    const{ satellite_name, country_name } = req.body;
-    console.log(`This is the id:${id}`);
+  const updateCountry = await Country.findOne({
+    where: {
+      country_name,
+    },
+  });
 
-    const updateSat = await Satellite.update({
-        satellite_name,
+  const updateSat = await Satellite.update(
+    {
+      satellite_name,
+      country_id: updateCountry.id,
     },
     {
-        where: {
-            id,
-        },
-    },
-    )
+      where: {
+        id,
+      },
+    }
+  );
 
-    res.status(200).json(updateSat);
+  res.status(200).json(updateSat);
 });
 
 router.delete('/:id', async (req, res) => {
-    const { id } = req.params; 
-    const deletePost = await Satellite.destroy({
-        where: {
-            id,
-        }
-    });
+  const { id } = req.params;
+  const deletePost = await Satellite.destroy({
+    where: {
+      id,
+    },
+  });
 
-    res.status(200).json('The satellite has been removed.')
+  res.status(200).json('The satellite has been removed.');
 });
 
 module.exports = router;
