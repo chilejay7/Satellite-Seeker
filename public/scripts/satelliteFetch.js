@@ -55,7 +55,8 @@ const searchSatellitesForm = async (event) => {
           '#countrySearch'
         ).innerText = `Country is: ${country}`;
 
-        mapCoordinates(latitudeMap, longitudeMap);
+        //mapCoordinates(latitudeMap, longitudeMap);
+        mapCoordinates(39.742043, -104.991531);
 
         console.log(data);
       } else {
