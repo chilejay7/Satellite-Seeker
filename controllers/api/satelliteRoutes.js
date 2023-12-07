@@ -73,11 +73,12 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
 
     const { id } = req.params;
-    const{ satellite_name } = req.body;
+    const{ satellite_name, country_name } = req.body;
     console.log(`This is the id:${id}`);
 
     const updateSat = await Satellite.update({
         satellite_name,
+        country_name,
     },
     {
         where: {
@@ -86,7 +87,7 @@ router.put('/:id', async (req, res) => {
     },
     )
 
-    res.status(200).json(updatedPost);
+    res.status(200).json(updateSat);
 });
 
 router.delete('/:id', async (req, res) => {
