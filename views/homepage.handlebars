@@ -4,15 +4,15 @@
 
     {{#each satellites as |satellite|}}
 
-    <a href = "/{{satellite.id}}"> 
     <section class="homepageDiv">
-        <a href = "/{{satellite.id}}"> 
-        <div class="satellite">
-            <h2>{{satellite.satellite_name}}</h2>
-        </div>
-        <div class="country">
-            <p>Created by: {{satellite.user.name}}</p>
-        </div>
+
+        <a href="/{{satellite.id}}">
+            <div class="satellite" {{satellite.norad_id}}>
+                <h2>{{satellite.satellite_name}}</h2>
+            </div>
+            <div class="country">
+                <p>Created by: {{satellite.country.country_name}}</p>
+            </div>
         </a>
         <div>
             <button>Remove from View</button>
@@ -26,7 +26,7 @@
     {{else}}
 
     {{#each satellites as |satellite|}}
-    {{!-- this is a test --}}
+
     <section class="homepageDiv">
 
         <a href="/{{satellite.id}}">
@@ -37,11 +37,14 @@
                 <p>Created by: {{satellite.country.country_name}}</p>
             </div>
         </a>
+        <div>
+            <button>Remove from View</button>
+        </div>
+
     </section>
 
     {{/each}}
 
     {{/if}}
-
 
 </section>

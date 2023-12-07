@@ -4,25 +4,13 @@
 <form action="#" class="form" id="satSearchForm">
     <h2>Find a Satellite</h2>
     <div>
-           <label for="satellite_name">Satellite Name</label>
+           <label for="norad_id">Norad ID</label>
     </div>
     <div>
-            <input type="text" id="satellite_name">
+            <input type="text" id="norad_id">
     </div>
     <div>
-           <label for="latitudeMap">Latitude</label>
-    </div>
-    <div>
-           <input type="text" id="latitudeMap">
-    </div>
-    <div>
-           <label for="longitudeMap">Longitude</label>
-    </div>
-    <div>
-           <input type="text" id="longitudeMap">
-    </div>
-    <div>
-           <button id="satSearchBtn">Search Satellites</button>
+           <button id="satSearchBtn">Search</button>
     </div>   
     
 </form>
@@ -30,10 +18,13 @@
 
 <section class="form" id="satSearchResults">
        <div>
-              <p id="citySearch"></p>
+              <p id="locationSearch"></p>
        </div>
        <div>
-              <p id="countrySearch"></p>
+              <p id="mapCoordinates"></p>
+       </div>
+       <div>
+              <p id="satelliteInfo"></p>
        </div>
        <div>
             <p id="mapImage"></p>
@@ -48,5 +39,4 @@
 
 {{/if}}
 </section>
-
 <script src="/scripts/satelliteFetch.js"></script>
