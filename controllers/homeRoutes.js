@@ -31,32 +31,13 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async ({ params}, res) => {
-  try {
-    const satData = await Satellite.findByPk(params.id, {
-      include: [
-        {
-          model: Country
-        }
-      ]
-    })
-    if(satData) {
-      const satInfo = satData.get({ plain: true });
-      res.render('satid', { 
-      satInfo,
-      loggedIn: req.session.loggedIn,
-       })
-    }
-  } catch (err) {
-    res.status(500).json(err)
-  }
-})
-
 // Get route for about us page
 router.get('/about', (req, res) => {
-  res.render('/aboutUs', {
+  console.log(req);
+  res.render('aboutUs', {
     loggedIn: req.session.loggedIn,
   });
-});
+})
+  
 
 module.exports = router;
