@@ -91,6 +91,7 @@ const searchSatellitesForm = async (event) => {
 
       if (response.ok) {
         const data = await response.json();
+
         console.log(data);
 
         // Mapbox API returns features array that may include elements depending on location, and will show satellite location if features array exists

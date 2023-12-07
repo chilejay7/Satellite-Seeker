@@ -4,10 +4,9 @@
 
     {{#each satellites as |satellite|}}
 
-    <a href = "/api/satellite/{{satellite.id}}"> 
     <section class="homepageDiv">
 
-        <a href="/api/satellite/{{satellite.id}}">
+        <a href="/{{satellite.id}}">
             <div class="satellite" {{satellite.norad_id}}>
                 <h2>{{satellite.satellite_name}}</h2>
             </div>
@@ -30,7 +29,7 @@
 
     <section class="homepageDiv">
 
-        <a href="/api/satellite/{{satellite.id}}">
+        <a href="/{{satellite.id}}">
             <div class="satellite" {{satellite.norad_id}}>
                 <h2>{{satellite.satellite_name}}</h2>
             </div>
@@ -38,11 +37,14 @@
                 <p>Created by: {{satellite.country.country_name}}</p>
             </div>
         </a>
+        <div>
+            <button>Remove from View</button>
+        </div>
+
     </section>
 
     {{/each}}
 
     {{/if}}
-
 
 </section>
