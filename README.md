@@ -7,7 +7,7 @@ This project was created by: Russell Montjoy, Brandon Wing, and Cody Burkholder
 
 The Satellite application uses the Model View Controller (MVC) paradigm to create and maintain a site for end users to track and view information related to satellites.  The `express-handlebars` module is used to integrate front end code with data retrieved from the back-end database through the controllers.  End users can create an account, view satellites, update a satellite's details, and delete a satellite from the database.  The site offers authentication and stores session information to provide views based on the user's login state.
 
-![Technology Bytes Blog App]()
+![Satellite Seeker](./public/assets/sat_seeker.png)
 
 ## Table of Contents 
 
