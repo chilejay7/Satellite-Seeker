@@ -1,6 +1,12 @@
 // This is the button used to delete a post in the postById view.
 const removeSatBtns = document.querySelectorAll('.removeSatBtn')
-const button = document.querySelectorAll('button');
+const updateBtns = document.querySelectorAll('.updateSatBtn');
+
+const updateSat = async (e) => {
+    e.preventDefault();
+    console.log(e.target.classList[1]);
+    const id = e.target.classList[1];
+}
 
 const removeSat = async (e) => {
     e.preventDefault();
@@ -17,6 +23,10 @@ const removeSat = async (e) => {
     sendDelete.ok ? document.location.replace(`/`)
         : alert(`Unable to delete post ${id}`);
 };
+
+updateBtns.forEach( (btn) => {
+    btn.addEventListener('click', updateSat)
+});
 
 removeSatBtns.forEach( (btn) => {
     btn.addEventListener('click', removeSat)
