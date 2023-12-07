@@ -1,17 +1,32 @@
 <section id="satIdPage">
 {{#if loggedIn}}
 
-<div>
-    <h2>Satellite Name: {{satInfo.satellite_name}}</h2>
+<form action="#" class="form" id="satIdInfo">
+    <h2>Satellite Information</h2>
+    <div>
+           <p>Name: {{oneSatellite.satellite_name}}</p>
+    </div>
+    <div>
+            <p>Norad ID: {{oneSatellite.norad_id}}</p>
+    </div>
+    <div>
+           <p>Country of Origin: {{oneSatellite.country.country_name}}</p>
+    </div>   
+</form>
 
-</div>
-
-<div>
-    <h2>Country of Origin: {{satInfo.country_name}}</h2>
-
-</div>
-
-
+<section class="form" id="satSearchResults">
+    <h2>Current Location</h2>
+    {{!-- file updated --}}
+    <div>
+            <p>Latitude: {{oneSatellite.latitude}}</p>
+    </div>
+    <div>
+            <p>Longitude: {{oneSatellite.longitude}}</p>
+    </div>
+    <div>
+            <p>"Map showing current location would go here"</p>
+    </div>
+</section>
 {{else}}
 
 <div class="login-link">
