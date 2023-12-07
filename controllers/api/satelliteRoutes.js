@@ -16,24 +16,26 @@ router.get('/search', (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-
-  const satellite = await Satellite.findByPk(id, {
-    include: [
-      {
-        model: Country,
-        attributes: ['id', 'country_name'],
-      },
-    ],
-  });
-
-  const oneSatellite = satellite.get({ plain: true });
-
-  res.render('satId', {
-    oneSatellite,
-    loggedIn: req.session.loggedIn,
-  });
-});
+    const { id } = req.params;
+    try {
+      const satData = await Satellite.findByPk(id, {
+        include: [
+          {
+            model: Country
+          }
+        ]
+      })
+      if(satData) {
+        const satInfo = satData.get({ plain: true });
+        res.render('satid', { 
+        satInfo,
+        loggedIn: req.session.loggedIn,
+         })
+      }
+    } catch (err) {
+      res.status(500).json(err)
+    }
+})
 
 // POST route for norad ID submitted to track coordinates and map out location
 router.post('/', async (req, res) => {
