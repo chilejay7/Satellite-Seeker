@@ -21,12 +21,14 @@ router.get('/:id', async (req, res) => {
       const satData = await Satellite.findByPk(id, {
         include: [
           {
-            model: Country
+            model: Country,
+            attributes: ['id', 'country_name'],
           }
         ]
       })
       if(satData) {
         const satInfo = satData.get({ plain: true });
+        console.log(satInfo);
         res.render('satid', { 
         satInfo,
         loggedIn: req.session.loggedIn,

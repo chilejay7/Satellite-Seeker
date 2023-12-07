@@ -33,7 +33,6 @@ router.get('/', async (req, res) => {
 
 // Get route for about us page
 router.get('/about', (req, res) => {
-  console.log(req);
   res.render('aboutUs', {
     loggedIn: req.session.loggedIn,
   });

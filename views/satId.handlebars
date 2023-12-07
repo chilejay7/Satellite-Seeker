@@ -4,13 +4,13 @@
 <form action="#" class="form" id="satIdInfo">
     <h2>Satellite Information</h2>
     <div>
-           <p>Name: {{oneSatellite.satellite_name}}</p>
+           <p>Name: {{satInfo.satellite_name}}</p>
     </div>
     <div>
-            <p>Norad ID: {{oneSatellite.norad_id}}</p>
+            <p>Norad ID: {{satInfo.norad_id}}</p>
     </div>
     <div>
-           <p>Country of Origin: {{oneSatellite.country.country_name}}</p>
+           <p>Country of Origin: {{satInfo.country.country_name}}</p>
     </div>   
 </form>
 
@@ -20,10 +20,10 @@
     {{!-- file updated --}}
 
     <div>
-            <p>Latitude: {{oneSatellite.latitude}}</p>
+            <p>Latitude: {{satInfo.latitude}}</p>
     </div>
     <div>
-            <p>Longitude: {{oneSatellite.longitude}}</p>
+            <p>Longitude: {{satInfo.longitude}}</p>
     </div>
     <div>
             <p>"Map showing current location would go here"</p>
