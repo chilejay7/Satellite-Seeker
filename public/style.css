@@ -138,6 +138,10 @@ button {
     padding-top: 50px;
 }
 
+#aboutUsPage {
+    padding-top: 5px;
+}
+
 #homepage {
     padding-top: 40px;
 }
@@ -187,6 +191,15 @@ button {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+#aboutUsIntro {
+    margin: 0px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: bold;
 }
 
 .mapLocation {
