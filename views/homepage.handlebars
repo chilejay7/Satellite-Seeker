@@ -4,6 +4,7 @@
 
     {{#each satellites as |satellite|}}
 
+    <a href = "/api/satellite/{{satellite.id}}"> 
     <section class="homepageDiv">
 
         <a href="/api/satellite/{{satellite.id}}">
@@ -41,7 +42,12 @@
             <button>Remove from View</button>
         </div>
 
+        <div class="homepageInfo">
+            <h2>{{satellite.satellite_name}}</h2>
+            <p>Created by: {{satellite.country.country_name}}</p>
+        </div>
     </section>
+    </a>
 
 
     {{/each}}
