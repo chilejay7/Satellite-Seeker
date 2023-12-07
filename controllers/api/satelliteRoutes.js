@@ -78,7 +78,6 @@ router.put('/:id', async (req, res) => {
 
     const updateSat = await Satellite.update({
         satellite_name,
-        country_name,
     },
     {
         where: {

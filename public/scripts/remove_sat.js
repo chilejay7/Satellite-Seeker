@@ -22,9 +22,9 @@ const updateSat = async (e) => {
     e.preventDefault();
     console.log(e.target);
 
-        // This captures the values from the 
+        // This captures the values from the input fields.
         const satellite_name = document.getElementById('update_name').value;
-        const country_name = document.getElementById('update_country').value;
+        // const country_name = document.getElementById('update_country').value;
     
         // The window.location provides access to the page's URL, and the split method separates it based on the / symbols.
         // This returns an array, which is why square brackets are used to then call the .length method of -1 to get the index of the id value we need.
@@ -40,7 +40,7 @@ const updateSat = async (e) => {
     
             body: JSON.stringify({
                 satellite_name,
-                country_name,
+                // country_name,
             })
         });
     
