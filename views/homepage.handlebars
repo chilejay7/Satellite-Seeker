@@ -3,23 +3,25 @@
     {{#if loggedIn}}
 
     {{#each satellites as |satellite|}}
-    <a href="/api/satellite/{{satellite.id}}">
-        <section class="homepageDiv">
 
+    <section class="homepageDiv">
 
+        <a class="sat_link" href="/api/satellite/{{satellite.id}}">
             <div class="satellite" {{satellite.norad_id}}>
                 <h2>{{satellite.satellite_name}}</h2>
             </div>
             <div class="country">
                 <p>Created by: {{satellite.country.country_name}}</p>
             </div>
+        </a>
 
-            <div>
-                <button>Remove from View</button>
-            </div>
+        <div>
+            {{!-- The id was added to the class list to be use in the remove_sat.js listeners for deletion route --}}
+            <button class="removeSatBtn {{satellite.id}}">Remove from View</button>
+        </div>
 
-        </section>
-    </a>
+    </section>
+
 
     {{/each}}
 

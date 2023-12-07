@@ -1,41 +1,53 @@
 <section id="satIdPage">
-{{#if loggedIn}}
+        {{#if loggedIn}}
 
-<form action="#" class="form" id="satIdInfo">
-    <h2>Satellite Information</h2>
-    <div>
-           <p>Name: {{oneSatellite.satellite_name}}</p>
-    </div>
-    <div>
-            <p>Norad ID: {{oneSatellite.norad_id}}</p>
-    </div>
-    <div>
-           <p>Country of Origin: {{oneSatellite.country.country_name}}</p>
-    </div>   
-</form>
+        <form action="#" class="form" id="satIdInfo">
+                <h2>Satellite Information</h2>
+                <div>
+                        <p>Name: {{satInfo.satellite_name}}</p>
+                </div>
+                <div>
+                        <p>Norad ID: {{satInfo.norad_id}}</p>
+                </div>
+                <div>
+                        <p>Country of Origin: {{satInfo.country.country_name}}</p>
+                </div>
+        </form>
 
-<section class="form" id="satSearchResults">
-    <h2>Current Location</h2>
+        <section class="form" id="satSearchResults">
+                <h2>Current Location</h2>
 
-    {{!-- file updated --}}
+                {{!-- file updated --}}
 
-    <div>
-            <p>Latitude: {{oneSatellite.latitude}}</p>
-    </div>
-    <div>
-            <p>Longitude: {{oneSatellite.longitude}}</p>
-    </div>
-    <div>
-            <p>"Map showing current location would go here"</p>
-    </div>
-</section>
-{{else}}
+                <div>
+                        <p>Latitude: {{satInfo.latitude}}</p>
+                </div>
+                <div>
+                        <p>Longitude: {{satInfo.longitude}}</p>
+                </div>
+                <div>
+                        <p>"Map showing current location would go here"</p>
+                </div>
+        </section>
 
-<div class="login-link">
-    <a href="/login">Please login to track the satellites in your area</a>
-</div>
+        <section>
+                <form class="form" id="update_form">
+                        <h2>Update Satellite Information</h2>
+                        <label for="update_name">Satellite Name:</label>
+                        <input type="text" name="update_name" id="update_name">
+                        {{!-- <label for="update_country">Country Name:</label>
+                        <input type="text" name="update_country" id="update_country"> --}}
+                        <button class="updateSatBtn {{satellite.id}}">Update Satellite</button>
+                </form>
+        </section>
 
-{{/if}}
+        {{else}}
+
+        <div class="login-link">
+                <a href="/login">Please login to track the satellites in your area</a>
+        </div>
+
+        {{/if}}
 </section>
 
 <!-- script tag goes here -->

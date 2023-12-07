@@ -21,12 +21,14 @@ router.get('/:id', async (req, res) => {
       const satData = await Satellite.findByPk(id, {
         include: [
           {
-            model: Country
+            model: Country,
+            attributes: ['id', 'country_name'],
           }
         ]
       })
       if(satData) {
         const satInfo = satData.get({ plain: true });
+        console.log(satInfo);
         res.render('satid', { 
         satInfo,
         loggedIn: req.session.loggedIn,
@@ -66,6 +68,36 @@ router.post('/', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
   }
+});
+
+router.put('/:id', async (req, res) => {
+
+    const { id } = req.params;
+    const{ satellite_name, country_name } = req.body;
+    console.log(`This is the id:${id}`);
+
+    const updateSat = await Satellite.update({
+        satellite_name,
+    },
+    {
+        where: {
+            id,
+        },
+    },
+    )
+
+    res.status(200).json(updateSat);
+});
+
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params; 
+    const deletePost = await Satellite.destroy({
+        where: {
+            id,
+        }
+    });
+
+    res.status(200).json('The satellite has been removed.')
 });
 
 module.exports = router;
