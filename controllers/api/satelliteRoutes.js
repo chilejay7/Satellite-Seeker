@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
     if (satData) {
       const satInfo = satData.get({ plain: true });
       console.log(satInfo);
-      res.render('satid', {
+      res.render('satId', {
         satInfo,
         loggedIn: req.session.loggedIn,
       });
@@ -81,6 +81,10 @@ router.put('/:id', async (req, res) => {
       country_name,
     },
   });
+
+  if (!updateCountry) {
+    return res.status(404).json({ error: 'Country not found' });
+  }
 
   const updateSat = await Satellite.update(
     {
