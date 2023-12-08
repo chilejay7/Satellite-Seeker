@@ -1,4 +1,4 @@
-# Project-2-Brandon-Russ-Cody
+# Satellite Seeker
 This project was created by: Russell Montjoy, Brandon Wing, and Cody Burkholder
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -19,7 +19,7 @@ The Satellite application uses the Model View Controller (MVC) paradigm to creat
     
 ## Installation
 
-No installation is required to use the application.  The application has been deployed to Heroku and can be accessed at the following URL: [Access the Deployed Heroku Application]()
+No installation is required to use the application.  The application has been deployed to Heroku and can be accessed at the following URL: [Access the Deployed Heroku Application](https://satellite-seeker-6eb766f2c5fc.herokuapp.com/)
 
 If a developer would like to access the underlying code utilized to create the application, it can be installed by cloning the repository to the local machine.  Please note, `node.js` is required in order to run this application and will need to be installed before attempting to use the code.  The package dependencies, are included within the package.json file and can be installed through a simple `npm i` command once the repository has been successfully cloned on the local computer.  The `express`, `express-handlebars`, `express-session`, `connect-session-sequelize`, `dotenv`, `mysql2`, and `sequelize` modules are all required for this application to run correctly and must be installed prior to initializing the express.js server.
 
