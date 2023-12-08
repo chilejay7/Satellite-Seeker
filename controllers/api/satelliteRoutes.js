@@ -82,6 +82,10 @@ router.put('/:id', async (req, res) => {
     },
   });
 
+  if (!updateCountry) {
+    return res.status(404).json({ error: 'Country not found' });
+  }
+
   const updateSat = await Satellite.update(
     {
       satellite_name,
