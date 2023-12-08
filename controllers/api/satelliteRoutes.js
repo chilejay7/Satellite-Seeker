@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
     if (satData) {
       const satInfo = satData.get({ plain: true });
       console.log(satInfo);
-      res.render('satid', {
+      res.render('satId', {
         satInfo,
         loggedIn: req.session.loggedIn,
       });
